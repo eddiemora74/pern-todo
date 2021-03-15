@@ -1,0 +1,21 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "export NODE_ENV=dev && concurrently \"nodemon ./server.js\" \"cd client && npm run start\"",
+    "start:prod": "export NODE_ENV=prod & node server.js",
+    "build": "cd client && npm run build && cd ../ && rm -rf public && mkdir public && cp -r client/build/ public/ && mv public/index.html public/app.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "pg": "^8.5.1",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {}
+}

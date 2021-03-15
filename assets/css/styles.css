@@ -55,3 +55,17 @@ body {
 .get-started-btn:active {
   transform: scale(0.98);
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.row img {
+  flex: 1;
+  flex-grow: 1;
+  max-width: 150px;
+  padding: 10px 10px 20px;
+}

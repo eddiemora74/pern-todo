@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "export NODE_ENV=dev && concurrently \"nodemon ./server.js\" \"cd client && npm run start\"",
     "start:prod": "export NODE_ENV=prod & node server.js",
-    "build": "cd client && npm run build && cd ../ && rm -rf public && mkdir public && cp -r client/build/ public/ && mv public/index.html public/app.html"
+    "build": "cd client && npm run build && cd ../ && rm -rf public && mkdir public && cp -r client/build/* public/ && mv public/index.html public/app.html"
   },
   "author": "",
   "license": "ISC",

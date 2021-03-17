@@ -4,7 +4,6 @@ import { GlobalContext } from "../context/GlobalState";
 export default function AddTodo() {
   const { refreshTodos } = useContext(GlobalContext);
   const [todo, setTodo] = useState("");
-  const [focus, setFocus] = useState(false);
 
   async function handleAddTodo(value) {
     await fetch("/api/todos", {
@@ -31,18 +30,7 @@ export default function AddTodo() {
         }
       }}
       placeholder="Keep on hustling..."
-      style={{
-        minWidth: "300px",
-        backgroundColor: "#000",
-        color: "#E95420",
-        fontFamily: "inherit",
-        fontSize: "1rem",
-        outline: "none",
-        border: "none",
-        borderBottom: focus ? "2px solid #E95420" : "2px solid #5E2750",
-      }}
-      onFocus={() => setFocus(true)}
-      onBlur={() => setFocus(false)}
+      className="add-todo-input"
     />
   );
 }

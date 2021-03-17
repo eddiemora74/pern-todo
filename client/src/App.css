@@ -1,4 +1,174 @@
+:root {
+  --canonical-aubergine: #772953;
+  --light-aubergine: #77216f;
+  --mid-aubergine: #5e2750;
+  --dark-aubergine: #2c001e;
+  --ubuntu-orange: #e95420;
+  --warm-grey: #aea79f;
+  --cool-grey: #333333;
+  --text-grey: #111111;
+  --white: #ffffff;
+  --black: #000000;
+}
+
 body {
-  background-color: #000000;
-  color: #fff;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+button {
+  font-family: inherit;
+}
+
+.back-btn-container {
+  display: flex;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.back-btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  background-color: transparent;
+  border: 2px solid var(--canonical-aubergine);
+  border-radius: 4px;
+  padding: 5px 15px;
+  cursor: pointer;
+  outline: 0;
+}
+
+.back-btn:hover {
+  background-color: var(--canonical-aubergine);
+}
+
+.back-btn:active {
+  transform: scale(0.97);
+}
+
+.fi-sr-arrow-left {
+  display: flex;
+}
+
+header {
+  margin-right: 10px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  min-height: 120px;
+}
+
+.trash-dropzone {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 10px 0;
+  border: 2px solid var(--mid-aubergine);
+}
+
+.trash-dropzone.hovered {
+  border: 2px dashed var(--ubuntu-orange);
+}
+
+.fi-rr-trash {
+  font-size: 2rem;
+  color: var(--mid-aubergine);
+}
+
+.fi-rr-trash.hovered {
+  color: var(--ubuntu-orange);
+  transform: scale(1.1);
+}
+
+.add-todo-input {
+  min-width: 300px;
+  background-color: var(--black);
+  color: var(--ubuntu-orange);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--mid-aubergine);
+}
+
+.add-todo-input:focus {
+  border-bottom: 2px solid var(--ubuntu-orange);
+}
+
+.kanban {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.kanban-column {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.kanban-column-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.kanban-column-header__clear-button {
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 2px solid var(--ubuntu-orange);
+  color: var(--ubuntu-orange);
+  border-radius: 4px;
+  position: absolute;
+  right: 0;
+}
+
+.kanban-column-items {
+  background-color: var(--cool-grey);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border-radius: 4px;
+}
+
+.todo-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  padding: 5px;
+  margin: 5px 10px;
+  cursor: grab;
+}
+
+.todo-card__priority-container {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.Toastify__progress-bar {
+  background-color: var(--ubuntu-orange);
+}
+
+.Toastify__toast {
+  background-color: var(--dark-aubergine);
 }

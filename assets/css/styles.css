@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@300;400;500;700&display=swap");
 
+:root {
+  --canonical-aubergine: #772953;
+  --light-aubergine: #77216f;
+  --mid-aubergine: #5e2750;
+  --dark-aubergine: #2c001e;
+  --ubuntu-orange: #e95420;
+  --warm-grey: #aea79f;
+  --cool-grey: #333333;
+  --text-grey: #111111;
+  --white: #ffffff;
+  --black: #000000;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -12,15 +25,11 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--dark-aubergine);
-  color: #fff;
+  color: var(--white);
 }
 
 * {
   box-sizing: border-box;
-  --ubuntu-orange: #e95420;
-  --dark-aubergine: #2c001e;
-  --mid-aubergine: #5e2750;
-  --light-aubergine: #77216f;
 }
 
 .container {
@@ -44,7 +53,7 @@ body {
 
 .get-started-btn:hover {
   background-color: var(--ubuntu-orange);
-  color: #fff;
+  color: var(--white);
 }
 
 .get-started-btn:active,

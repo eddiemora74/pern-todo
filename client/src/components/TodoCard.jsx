@@ -2,15 +2,16 @@ import { useContext } from "react";
 import { useDrag } from "react-dnd";
 import { GlobalContext } from "../context/GlobalState";
 import { ItemTypes } from "../context/ItemTypes";
+import { Colors } from "../context/Branding";
 
 function color(priority) {
   switch (priority) {
     case 3:
-      return "#77216F";
+      return Colors.LIGHT_AUBERGINE;
     case 2:
-      return "#E95420";
+      return Colors.UBUNTU_ORANGE;
     case 1:
-      return "#AEA79F";
+      return Colors.WARM_GREY;
     default:
       return "initial";
   }
@@ -18,6 +19,7 @@ function color(priority) {
 
 export default function TodoCard({ todo }) {
   const { refreshTodos } = useContext(GlobalContext);
+
   const [{ isDragging }, drag, dragPreview] = useDrag(
     () => ({
       type: ItemTypes.CARD,
@@ -45,19 +47,11 @@ export default function TodoCard({ todo }) {
   return (
     <div
       ref={isDragging ? dragPreview : drag}
+      className="todo-card"
       style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
         border: `1px solid ${color(todo.Priority)}`,
-        borderRadius: "6px",
-        marginBottom: "5px",
-        padding: "5px",
-        margin: "5px 10px",
-        backgroundColor: isDragging ? "#2C001E" : "#111111",
+        backgroundColor: isDragging ? Colors.DARK_AUBERGINE : Colors.TEXT_GREY,
         opacity: isDragging && "0.5",
-        cursor: "grab",
       }}
     >
       <p
@@ -70,12 +64,18 @@ export default function TodoCard({ todo }) {
       >
         {todo.Todo}
       </p>
-      <div style={{ flexGrow: "1", textAlign: "right" }}>
+      <div className="todo-card__priority-container">
         {new Array(3).fill(0).map((item, idx) => (
           <i
             key={idx}
-            className={idx < todo.Priority ? "fi fi-sr-star" : "fi fi-rr-star"}
-            style={{ color: color(todo.Priority), cursor: "pointer" }}
+            className={
+              idx < todo.Priority ? "fi fi-sr-circle" : "fi fi-rr-circle"
+            }
+            style={{
+              color: color(todo.Priority),
+              cursor: "pointer",
+              marginLeft: "1px",
+            }}
             onClick={async () => await priorityShift(idx + 1)}
           ></i>
         ))}

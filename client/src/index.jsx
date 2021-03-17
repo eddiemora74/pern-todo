@@ -5,6 +5,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { GlobalProvider } from "./context/GlobalState";
 import "./assets/css/uicons-regular-rounded.css";
 import "./assets/css/uicons-solid-rounded.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import App from "./App";
 

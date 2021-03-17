@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { useDrop } from "react-dnd";
+import { Colors } from "../context/Branding";
 import { GlobalContext } from "../context/GlobalState";
 import { ItemTypes } from "../context/ItemTypes";
 import TodoCard from "./TodoCard";
+import Toaster from "./Toast";
 
 export default function KanbanColumn({ title, status, todos }) {
   const { refreshTodos } = useContext(GlobalContext);
@@ -31,6 +33,7 @@ export default function KanbanColumn({ title, status, todos }) {
         Status: newStatus,
       }),
     });
+    Toaster("Todo updated!");
     await refreshTodos();
   }
 
@@ -43,39 +46,26 @@ export default function KanbanColumn({ title, status, todos }) {
         value: status,
       }),
     });
+    Toaster("Cleared completed todos!");
     await refreshTodos();
   }
 
   return (
-    <div
-      ref={drop}
-      style={{
-        width: "100%",
-        paddingLeft: "10px",
-        paddingRight: "10px",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          margin: "0 10px",
-        }}
-      >
-        <h3>{title}</h3>
+    <div ref={drop} className="kanban-column">
+      <div className="kanban-column-header">
+        <h3
+          style={{
+            transform: isOver && "scale(1.1)",
+            color: isOver && Colors.UBUNTU_ORANGE,
+          }}
+        >
+          {title}
+        </h3>
         {status === 3 && (
           <button
             onClick={clearColumn}
+            className="kanban-column-header__clear-button"
             style={{
-              fontFamily: "inherit",
-              backgroundColor: "transparent",
-              fontSize: "16px",
-              border: "2px solid #E95420",
-              color: "#E95420",
-              borderRadius: "4px",
               opacity: !todos.length && "0.4",
               cursor: !todos.length ? "not-allowed" : "pointer",
             }}
@@ -87,17 +77,13 @@ export default function KanbanColumn({ title, status, todos }) {
       </div>
 
       <div
+        className="kanban-column-items"
         style={{
-          backgroundColor: "#333333",
-          display: "flex",
-          flexDirection: "column",
-          flexGrow: "1",
           border: isOver
-            ? "2px dashed #E95420"
+            ? `2px dashed ${Colors.UBUNTU_ORANGE}`
             : canDrop
-            ? "2px solid #333333"
-            : "2px solid #AEA79F",
-          borderRadius: "4px",
+            ? `2px solid ${Colors.COOL_GREY}`
+            : `2px solid ${Colors.WARM_GREY}`,
         }}
       >
         {todos.map((todo) => (

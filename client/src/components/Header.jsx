@@ -2,7 +2,9 @@ import { useContext } from "react";
 import { useDrop } from "react-dnd";
 import { GlobalContext } from "../context/GlobalState";
 import { ItemTypes } from "../context/ItemTypes";
+import BackButton from "./BackButton";
 import AddTodo from "./AddTodo";
+import Toaster from "./Toast";
 
 export default function Header() {
   const { refreshTodos } = useContext(GlobalContext);
@@ -24,46 +26,17 @@ export default function Header() {
     await fetch(`/api/todos/${id}`, {
       method: "DELETE",
     });
+    Toaster("Todo deleted!");
     await refreshTodos();
   }
 
   return (
-    <div
-      style={{
-        marginRight: "10px",
-        marginLeft: "10px",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <div
-        ref={drop}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "10px 0",
-          minHeight: "120px",
-        }}
-      >
+    <header>
+      {!canDrop && <BackButton />}
+      <div ref={drop} className="inner-container">
         {canDrop ? (
-          <div
-            style={{
-              height: "100%",
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              border: isOver ? "2px dashed red" : "2px solid #5E2750",
-              borderRadius: "4px",
-              padding: "10px 0",
-            }}
-          >
-            <i
-              className="fi-rr-trash"
-              style={{ fontSize: "2rem", color: isOver ? "red" : "#5E2750" }}
-            ></i>
+          <div className={isOver ? "trash-dropzone hovered" : "trash-dropzone"}>
+            <i className={isOver ? "fi-rr-trash hovered" : "fi-rr-trash"}></i>
           </div>
         ) : (
           <>
@@ -72,6 +45,6 @@ export default function Header() {
           </>
         )}
       </div>
-    </div>
+    </header>
   );
 }

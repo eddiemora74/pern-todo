@@ -8,14 +8,27 @@ This is a typical todo app using the PERN stack (PostgreSQL, Express, React, Nod
 - Set importance of Todo; sorts your columns by priority
 - One-click completion clearing for a clean board
 
-### `npm start`
+## Architecture
+
+!(/assets/images/PERN_TODO.png)
+
+### `npm start:dev`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This will run the Express server for the server-side of the application as well as the\
+react server for the frontend.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- ExpressJS: http://localhost:8080
+- React: http://localhost:3000
 
-### `npm test`
+In the development mode, requests made to the API from the frontend ae proxied to the Express\
+server. On the server, if accessing the /app route, it will redirect to http://localhost:3000.\
+Since nodemon is used to run the server, it will be listening to changes for faster development.
+
+### `npm start:prod`
+
+Runs the app in production mode.\
+NOTE: you need to build the react app first to use this command or else the /app route will fail.\
+All requests will be on port 8080.
 
 WIP

@@ -31,6 +31,7 @@ export default function AddTodo() {
       }}
       placeholder="Keep on hustling..."
       className="add-todo-input"
+      maxLength={255}
     />
   );
 }

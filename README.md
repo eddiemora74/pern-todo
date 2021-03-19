@@ -26,4 +26,14 @@ In the development mode, requests made to the API from the frontend ae proxied t
 Runs the app in production mode.\
 NOTE: you need to build the react app first to use this command or else the /app route will fail. All requests will be on port 8080.
 
-WIP
+### `npm build`
+
+Runs the build command in the react app and will copy the build folder into the top level public folder. It will also rename the index.html file to app.html to prevent rewrites to / as the app exists under /app route.
+
+## Environment Variables
+
+- DB_USER = Username for Postgres
+- DB_PASS = Password for Postgres
+- DB_HOST = Where the DB exists (should be localhost if all on the same server)
+- DB_PORT = Port where the DB exists (default is 5432)
+- DB_NAME = Name of the database to connect to

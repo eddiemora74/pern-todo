@@ -19,7 +19,8 @@ Runs the app in the development mode. This will run the Express server for the s
 - ExpressJS: http://localhost:8080
 - React: http://localhost:3000
 
-In the development mode, requests made to the API from the frontend ae proxied to the Express server. On the server, if accessing the /app route, it will redirect to http://localhost:3000. Since nodemon is used to run the server, it will be listening to changes for faster development.
+In the development mode, requests made to the API from the frontend ae proxied to the Express server. On the server, if accessing the /app route, it will redirect to http://localhost:3000. Since nodemon is used to run the server, it will be listening to changes for faster development.\
+**NOTE**: Just remember to install packages from the root folder **AND** inside the client folder.
 
 ### `npm start:prod`
 

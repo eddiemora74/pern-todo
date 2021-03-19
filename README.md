@@ -10,7 +10,7 @@ This is a typical todo app using the PERN stack (PostgreSQL, Express, React, Nod
 
 ## Architecture
 
-!(/assets/images/PERN_TODO.png)
+![Architecture](assets/images/PERN_TODO.png)
 
 ### `npm start:dev`
 

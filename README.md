@@ -37,3 +37,14 @@ Runs the build command in the react app and will copy the build folder into the 
 - DB_HOST = Where the DB exists (should be localhost if all on the same server)
 - DB_PORT = Port where the DB exists (default is 5432)
 - DB_NAME = Name of the database to connect to
+
+## Screenshots
+
+HOME\
+![Home Screen](/assets/images/gh/home.png)
+
+APP\
+![App Screen](/assets/images/gh/app.png)
+
+APP - DRAGGING\
+![App Dragging](/assets/images/gh/dragging.png)
